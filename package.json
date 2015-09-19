@@ -21,6 +21,7 @@
   ],
   "devDependencies": {
     "dispatch-event": "~1.0.0",
+    "dom-delegator": "~13.1.0",
     "raf": "~3.1.0",
     "standard": "^4.0.0",
     "tape": "^4.0.0",
