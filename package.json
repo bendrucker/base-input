@@ -1,7 +1,7 @@
 {
   "name": "base-input",
   "main": "index.js",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Base input field for virtual-dom",
   "license": "MIT",
   "repository": "bendrucker/base-input",
