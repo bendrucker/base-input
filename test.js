@@ -31,10 +31,15 @@ test('state to dom', function (t) {
 })
 
 test('dom to state', function (t) {
-  t.plan(2)
+  t.plan(3)
   render(function (state, element, done) {
+    CapitalInput.onInput(state, function (data) {
+      t.pass('onInput')
+    })
+
     element.value = 'BVD'
     dispatchEvent(element, 'input')
+
     raf(function () {
       t.equal(state.value(), 'bvd')
       t.ok(CapitalInput.validate(state))

@@ -3,6 +3,7 @@
 var extend = require('xtend')
 var State = require('dover')
 var Observ = require('observ')
+var Event = require('weakmap-event')
 var changeEvent = require('value-event/change')
 var h = require('virtual-dom/h')
 var value = require('observ-value')
@@ -22,6 +23,9 @@ function BaseInput (input) {
   Input.render = render
   Input.validate = validate
 
+  var InputEvent = Event()
+  Input.onInput = InputEvent.listen
+
   return Input
 
   function Input (data) {
@@ -37,6 +41,7 @@ function BaseInput (input) {
 
   function change (state, data) {
     pipe(input.parse, state.value.set)(data[data.name])
+    InputEvent.broadcast(state, {})
   }
 
   function render (state, options) {

@@ -66,6 +66,24 @@ Type: `function`
 
 The observable input state.
 
+#### `Input.onInput(state, listener)` -> `function`
+
+Returns a function that disables the listener.
+
+##### state
+
+*Required*  
+Type: `function`
+
+The observable input state.
+
+##### listener
+
+*Required*  
+Type: `function`
+
+A function to call when the input changes.
+
 ## Related
 
 * [email-input](https://github.com/bendrucker/email-input)
