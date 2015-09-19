@@ -9,13 +9,11 @@ var BaseInput = require('./')
 var CapitalInput = BaseInput({
   parse: lowercase,
   format: capitalize,
-  validate: validate
+  validate: validate,
+  options: {
+    name: 'capital'
+  }
 })
-
-var _render = CapitalInput.render
-CapitalInput.render = function render (state) {
-  return _render(state, {name: 'capital'})
-}
 
 var render = thermometer.createComponent(CapitalInput)
 

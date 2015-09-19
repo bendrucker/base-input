@@ -8,13 +8,15 @@ var changeEvent = require('value-event/change')
 var h = require('virtual-dom/h')
 var value = require('observ-value')
 var pipe = require('value-pipe')
+var cuid = require('cuid')
 
 module.exports = BaseInput
 
 var defaults = {
   parse: identity,
   format: identity,
-  validate: Boolean
+  validate: Boolean,
+  options: {}
 }
 
 function BaseInput (input) {
@@ -45,7 +47,13 @@ function BaseInput (input) {
   }
 
   function render (state, options) {
-    options = extend(options || {}, {
+    options = extend(input.options, options || {})
+
+    if (!options.name) {
+      options.name = 'input-' + cuid()
+    }
+
+    options = extend(options, {
       value: input.format(state.value),
       'ev-event': changeEvent(state.channels.change, {
         name: options.name
