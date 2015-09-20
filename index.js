@@ -7,7 +7,6 @@ var Event = require('weakmap-event')
 var changeEvent = require('value-event/change')
 var h = require('virtual-dom/h')
 var value = require('observ-value')
-var pipe = require('value-pipe')
 var cuid = require('cuid')
 
 module.exports = BaseInput
@@ -42,7 +41,7 @@ function BaseInput (input) {
   }
 
   function change (state, data) {
-    pipe(input.parse, state.value.set)(data[data.name])
+    state.value.set(input.parse(data[data.name], input.options))
     InputEvent.broadcast(state, {})
   }
 
@@ -54,7 +53,7 @@ function BaseInput (input) {
     }
 
     options = extend(options, {
-      value: input.format(state.value),
+      value: input.format(state.value, input.options),
       'ev-event': changeEvent(state.channels.change, {
         name: options.name
       })
@@ -64,7 +63,7 @@ function BaseInput (input) {
   }
 
   function validate (state) {
-    return pipe(value, input.validate)(state.value)
+    return input.validate(value(state.value), input.options)
   }
 }
 

@@ -37,7 +37,7 @@ Create a new input.
 *Required*  
 Type: `object`
 
-Includes optional `parse`, `format`, and `validate` functions. An `input.options` will be applied to `Input.render` before extending with its options. You should pass options like `name` here and reserve purely presentational attributes like `style` for your `render` calls.
+Includes optional `parse`, `format`, and `validate` functions. An `input.options` will be applied to the three provided functions as well as `Input.render` before extending with its options. You should pass options like `name` here and reserve purely presentational attributes like `style` for your `render` calls.
 
 #### `Input.render(state, [options])` -> `vtree`
 
