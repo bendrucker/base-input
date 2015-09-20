@@ -53,7 +53,7 @@ function BaseInput (input) {
     }
 
     options = extend(options, {
-      value: input.format(state.value, input.options),
+      value: input.format(state.value, options),
       'ev-event': changeEvent(state.channels.change, {
         name: options.name
       })
