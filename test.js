@@ -51,7 +51,7 @@ function lowercase (value) {
 }
 
 function capitalize (value) {
-  return value.toUpperCase()
+  return value ? value.toUpperCase() : ''
 }
 
 function validate (value) {

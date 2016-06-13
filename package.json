@@ -34,6 +34,7 @@
     "cuid": "~1.3.8",
     "dover": "^1.1.0",
     "observ": "~0.2.0",
+    "observ-thunk": "~1.0.0",
     "observ-value": "~1.0.0",
     "value-event": "~5.1.0",
     "value-pipe": "~1.0.0",
