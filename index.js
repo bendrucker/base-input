@@ -6,7 +6,9 @@ var Observ = require('observ')
 var watch = require('observ/watch')
 var value = require('observ-value')
 var Thunk = require('observ-thunk')
+var softSet = require('soft-set')
 var pipe = require('value-pipe')
+var partial = require('ap').partial
 var Event = require('weakmap-event')
 
 var h = require('virtual-dom/h')
@@ -46,7 +48,7 @@ function BaseInput (input) {
 
     InputEvent.listen(state, pipe(
       input.parse,
-      state.value.set
+      partial(softSet, state.value)
     ))
 
     watch(state.value, Thunk(pipe(input.format, state.raw.set)))
