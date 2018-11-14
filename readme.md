@@ -1,4 +1,4 @@
-# base-input [![Build Status](https://travis-ci.org/bendrucker/base-input.svg?branch=master)](https://travis-ci.org/bendrucker/base-input)
+# base-input [![Build Status](https://travis-ci.org/bendrucker/base-input.svg?branch=master)](https://travis-ci.org/bendrucker/base-input) [![Greenkeeper badge](https://badges.greenkeeper.io/bendrucker/base-input.svg)](https://greenkeeper.io/)
 
 > Base input field for virtual-dom
 
